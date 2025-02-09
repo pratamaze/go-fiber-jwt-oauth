@@ -164,37 +164,6 @@ func UpdateUser(c *fiber.Ctx) error {
 	return c.JSON(user)
 }
 
-
-
-// func UpdateUser(c *fiber.Ctx) error {
-// 	id := c.Params("id")
-// 	var user models.User
-// 	if err := config.DB.First(&user, id).Error; err != nil {
-// 		return c.Status(404).JSON(fiber.Map{"error": "User not found"})
-// 	}
-
-// 	claims, ok := c.Locals("user").(*jwt.Token)
-// 	if !ok {
-// 		return c.Status(401).JSON(fiber.Map{"error": "Unauthorized"})
-// 	}
-// 	claimsMap := claims.Claims.(jwt.MapClaims)
-// 	if claimsMap["email"] != user.Email && !claimsMap["admin"].(bool) {
-// 		return c.Status(403).JSON(fiber.Map{"error": "Forbidden"})
-// 	}
-
-// 	var data UpdateUserRequest
-// 	if err := c.BodyParser(&data); err != nil {
-// 		return c.Status(400).JSON(fiber.Map{"error": "Invalid input"})
-// 	}
-
-// 	user.Name = data.Name
-// 	user.Email = data.Email
-// 	config.DB.Save(&user)
-
-// 	return c.JSON(user)
-// } // <-- Pastikan tanda kurung tutup ini ada sebelum fungsi DeleteUser
-
-
 func DeleteUser(c *fiber.Ctx) error {
 	id := c.Params("id")
 	var user models.User

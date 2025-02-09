@@ -7,11 +7,6 @@ import (
 	"os"
 )
 
-// func AuthMiddleware() fiber.Handler {
-// 	return jwtware.New(jwtware.Config{
-// 		SigningKey: []byte(os.Getenv("JWT_SECRET")),
-// 	})
-// }
 
 func AuthMiddleware() fiber.Handler {
 	return func(c *fiber.Ctx) error {

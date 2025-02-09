@@ -20,9 +20,7 @@ func main() {
 	// Initialize database
 	config.InitDatabase()
     migrations.AddIsAdminColumn()
-
     config.SeedAdminUser()
-
 
 	// Create a new Fiber instance
 	app := fiber.New()

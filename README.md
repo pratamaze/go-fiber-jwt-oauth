@@ -28,8 +28,12 @@ $ cd go-fiber-auth
 ### 2. Configure Environment Variables
 Create a `.env` file in the root directory and add:
 ```env
-DATABASE_URL=postgres://user:password@db:5432/gofiber_auth
-JWT_SECRET=your_secret_key
+DATABASE_URL=postgres://postgres:password@db:5432/golang_fiber?sslmode=disable
+JWT_SECRET=supersecretkey
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GOOGLE_REDIRECT_URL=http://localhost:8080/auth/google/callback
+
 ```
 
 ### 3. Run with Docker
@@ -147,7 +151,4 @@ DELETE /api/users/{id}
 2. Set the **Base URL** to your running API instance.
 3. Register a user and log in to obtain a **JWT token**.
 4. Use the **JWT token** in the `Authorization` header for protected routes.
-
-## License
-This project is licensed under the MIT License.
 
